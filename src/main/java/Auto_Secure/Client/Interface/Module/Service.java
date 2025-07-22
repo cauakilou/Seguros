@@ -4,22 +4,17 @@ import Auto_Secure.Client.Interface.Module.Cliente.Cliente;
 import Auto_Secure.Client.Interface.Module.Cliente.ClienteRepository;
 import Auto_Secure.Client.Interface.Module.Veiculos.Veiculo;
 import Auto_Secure.Client.Interface.Module.Veiculos.VeiculoRepository;
-import org.springframework.beans.factory.annotation.Autowired;
-
-import java.util.Optional;
 
 @org.springframework.stereotype.Service
 public class Service {
 
-    @Autowired
     ClienteRepository clienteRepository;
 
-    @Autowired
     VeiculoRepository veiculosRepository;
 
-
-    public double valorDoPlanoDoCliente(Cliente cliente){
-        return cliente.getPlano().calcularValor(veiculoPelaPlaca(cliente.getVeiculos().toString()).getValor());
+    public Service(ClienteRepository clienteRepository, VeiculoRepository veiculosRepository) {
+        this.clienteRepository = clienteRepository;
+        this.veiculosRepository = veiculosRepository;
     }
 
     public void deletarCliente(Cliente cliente){
@@ -32,4 +27,5 @@ public class Service {
         }
         return null;
     }
+
 }

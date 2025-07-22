@@ -1,4 +1,5 @@
 package Auto_Secure.Client.Interface.Module;
+
 /**
  * Enum que define os planos de seguro e a estratégia de cálculo para cada um.
  * Cada plano é responsável por saber como calcular seu próprio valor com base no

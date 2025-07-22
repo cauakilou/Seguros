@@ -12,10 +12,13 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping(path = "/veiculo")
 public class VeiculoController {
 
-    @Autowired
     VeiculoService veiculoService;
-    @Autowired
     ClientService clientService;
+
+    public VeiculoController(ClientService clientService, VeiculoService veiculoService) {
+        this.clientService = clientService;
+        this.veiculoService = veiculoService;
+    }
 
     @PostMapping
     @ResponseBody

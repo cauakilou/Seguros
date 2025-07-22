@@ -4,22 +4,23 @@ import Auto_Secure.Client.Interface.Module.Cliente.ClientService;
 import Auto_Secure.Client.Interface.Module.Cliente.ClienteRepository;
 import Auto_Secure.Client.Interface.Module.Veiculos.VeiculoRepository;
 import jakarta.transaction.Transactional;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
 
 @Service
 public class AcionamentoService {
 
-    @Autowired
     AcionamentoRepository acionamentoRepository;
-    @Autowired
+
+    public AcionamentoService(AcionamentoRepository acionamentoRepository, ClienteRepository clienteRepository, ClientService clientService, VeiculoRepository veiculoRepository) {
+        this.acionamentoRepository = acionamentoRepository;
+        this.clienteRepository = clienteRepository;
+        this.clientService = clientService;
+        this.veiculoRepository = veiculoRepository;
+    }
+
     ClienteRepository clienteRepository;
-    @Autowired
     ClientService clientService;
-    @Autowired
     VeiculoRepository veiculoRepository;
 
     @Transactional
