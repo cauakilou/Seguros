@@ -1,14 +1,12 @@
 package Auto_Secure.Client.Interface.Module.Acionamentos;
 
 import Auto_Secure.Client.Interface.Module.Cliente.Cliente;
-import Auto_Secure.Client.Interface.Module.Veiculos.Veiculo;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-import java.util.Optional;
 
 @Entity
 public class Acionamento {
@@ -33,15 +31,14 @@ public class Acionamento {
     private String dataDeFinalizacao;
 
     @NotNull
-    private int codigoDeAcionamento;
-
+    private long codigoDeAcionamento;
 
     private String decisaoFinal;
 
-    private String Responsavel;
+    private String responsavel;
 
     public Acionamento(){}
-    public Acionamento(Cliente cliente, String descricao, int codigoDeAcionamento) {
+    public Acionamento(Cliente cliente, String descricao, long codigoDeAcionamento) {
         this.cliente = cliente;
         this.descricao = descricao;
         this.codigoDeAcionamento = codigoDeAcionamento;
@@ -87,11 +84,11 @@ public class Acionamento {
         this.dataDeFinalizacao = LocalDateTime.now().format(DateTimeFormatter.ofPattern("dd/MM/yyyy - HH:mm:ss"));
     }
 
-    public int getCodigoDeAcionamento() {
+    public long getCodigoDeAcionamento() {
         return codigoDeAcionamento;
     }
 
-    public void setCodigoDeAcionamento(int codigoDeAcionamento) {
+    public void setCodigoDeAcionamento(long codigoDeAcionamento) {
         this.codigoDeAcionamento = codigoDeAcionamento;
     }
 
@@ -104,7 +101,7 @@ public class Acionamento {
         setResolvido(true);
         setDataDeFinalizacao();
         this.decisaoFinal = decisaoFinal;
-        setResponsavel(responsavel);
+        setresponsavel(responsavel);
     }
 
     public long getId() {
@@ -115,11 +112,11 @@ public class Acionamento {
         this.id = id;
     }
 
-    public String getResponsavel() {
-        return Responsavel;
+    public String getresponsavel() {
+        return responsavel;
     }
 
-    public void setResponsavel(String responsavel) {
-        Responsavel = responsavel;
+    public void setresponsavel(String responsavel) {
+        this.responsavel = responsavel;
     }
 }

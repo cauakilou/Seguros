@@ -24,7 +24,7 @@ public class AcionamentoService {
     VeiculoRepository veiculoRepository;
 
     @Transactional
-    public Acionamento acionar(String CPF, String desc, int codigo){
+    public Acionamento acionar(String CPF, String desc, long codigo){
         Acionamento acionamento = new Acionamento(clientService.clienteId(CPF),desc,codigo);
         acionamento.setDataDeInicio();
         acionamento.setResolvido(false);

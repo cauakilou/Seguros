@@ -36,12 +36,12 @@ public class ClientController {
         return clientService.ClientesCadastrados();
     }
 
-    /*
-    @GetMapping(path = "/plano/{CPF}")
-    public double planodocliente(@PathVariable String CPF){
-        return service.valorDoPlanoDoCliente(clientService.clienteId(CPF));
+
+    @GetMapping(path = "/plano/{cpf}")
+    public double valorDoPlanoDoCliente(@PathVariable String cpf){
+        return service.calcularValorTotalDoPlano(cpf);
     }
-    */
+
 
     @DeleteMapping(path = "/excluir/{CPF}")
     public void deletarCliente(@PathVariable String CPF){
